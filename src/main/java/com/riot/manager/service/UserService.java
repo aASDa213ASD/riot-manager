@@ -8,7 +8,10 @@ import com.riot.manager.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.naming.NameNotFoundException;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -23,8 +26,29 @@ public class UserService {
                 .toList();
     }
 
+    public UserViewDTO getById(String id) throws NameNotFoundException {
+        Long longId = Long.parseLong(id);
+
+        Optional<User> oUser = userRepository.findById(longId);
+
+        if(oUser.isEmpty()){
+            throw new NameNotFoundException("Couldn't find any user by specified id");
+        }
+
+        return userMapper.toViewDTO(oUser.get());
+    }
+
     public UserDTO createUser(UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
         return userMapper.toDTO(userRepository.save(user));
+    }
+
+    public UserDTO changePWD(UserDTO userdata) {
+        String username = userdata.getUsername();
+        Optional<User> oUser = Objects.requireNonNull(userRepository.findByUsername(username));
+        User userEntity = oUser.orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        userEntity.setPassword(userdata.getPassword());
+        return userMapper.toDTO(userRepository.save(userEntity));
     }
 }
