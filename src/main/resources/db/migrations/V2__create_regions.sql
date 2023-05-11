@@ -1,0 +1,7 @@
+CREATE SEQUENCE IF NOT EXISTS regions_seq INCREMENT BY 1;
+
+CREATE TABLE IF NOT EXISTS regions(
+    id INT CHECK (id > 0) PRIMARY KEY NOT NULL DEFAULT NEXTVAL ('regions_seq'),
+    user_id INT NOT NULL,
+    region_name VARCHAR(20) UNIQUE NOT NULL
+);

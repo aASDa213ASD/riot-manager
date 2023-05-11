@@ -42,4 +42,9 @@ public class UserController {
 
         return new ResponseEntity<>("There was an error updating your password.", HttpStatus.BAD_REQUEST);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+    }
 }

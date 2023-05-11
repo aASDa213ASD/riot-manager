@@ -40,6 +40,13 @@ public class UserService {
 
     public UserDTO createUser(UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
+
+        boolean userExists = userRepository.existsByUsername(userDTO.getUsername());
+        if (userExists)
+            throw new IllegalStateException("This username has already been taken.");
+
+        //throw new UserAlreadyExistsException(new Throwable("User already exists".formatted()));
+
         return userMapper.toDTO(userRepository.save(user));
     }
 
@@ -50,5 +57,12 @@ public class UserService {
 
         userEntity.setPassword(userdata.getPassword());
         return userMapper.toDTO(userRepository.save(userEntity));
+    }
+
+    public void deleteUser(Long id) {
+        User existingUser = userRepository.findById(id).orElseThrow(() -> new IllegalStateException(
+                new Throwable("User with id " + id + " does not exist".formatted()))
+        );
+        userRepository.deleteById(id);
     }
 }
