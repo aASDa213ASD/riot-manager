@@ -1,8 +1,10 @@
 package com.riot.manager.service;
 
+import com.riot.manager.dto.RegionDTO;
 import com.riot.manager.dto.UserDTO;
 import com.riot.manager.dto.UserViewDTO;
 import com.riot.manager.entity.User;
+import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.mapper.UserMapper;
 import com.riot.manager.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -44,8 +46,6 @@ public class UserService {
         boolean userExists = userRepository.existsByUsername(userDTO.getUsername());
         if (userExists)
             throw new IllegalStateException("This username has already been taken.");
-
-        //throw new UserAlreadyExistsException(new Throwable("User already exists".formatted()));
 
         return userMapper.toDTO(userRepository.save(user));
     }

@@ -21,6 +21,6 @@ public class Region {
     @Column(name = "region_name")
     private String regionName;
 
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private Long userId;
 }

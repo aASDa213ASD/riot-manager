@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -15,7 +17,7 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_generator")
-    @SequenceGenerator(name="users_generator", sequenceName = "users_seq", allocationSize=1)
+    @SequenceGenerator(name = "users_generator", sequenceName = "users_seq", allocationSize = 1)
     private Long id;
 
     @Column
@@ -23,4 +25,7 @@ public class User {
 
     @Column
     private String password;
+
+    @OneToMany(mappedBy = "userId")
+    private List<Region> regionList;
 }
