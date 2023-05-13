@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Long> {
     boolean existsByRegionNameAndUserId(@Param("region_name") String region_name, @Param("user_id") Long user_id);
+    Optional<Region> findByRegionName(String regionName);
 }

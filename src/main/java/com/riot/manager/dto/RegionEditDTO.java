@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegionViewDTO {
+public class RegionEditDTO {
+    private Long id;
     private String region_name;
+    private Long user_id;
 }
