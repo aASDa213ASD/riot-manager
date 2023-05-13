@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegionDTO {
-    private String region_name;
-    private Long user_id;
+    private String regionName;
+    private Long userId;
 }

@@ -3,6 +3,7 @@ package com.riot.manager.service;
 import com.riot.manager.dto.RegionDTO;
 import com.riot.manager.dto.RegionEditDTO;
 import com.riot.manager.entity.Region;
+import com.riot.manager.entity.User;
 import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;
@@ -27,17 +28,17 @@ public class RegionService {
     }
 
     public RegionDTO addRegion(RegionDTO regionDTO) {
-        boolean regionExists = regionRepository.existsByRegionNameAndUserId(regionDTO.getRegion_name(), regionDTO.getUser_id());
+        boolean regionExists = regionRepository.existsByRegionNameAndUserId(regionDTO.getRegionName(), regionDTO.getUserId());
         if (regionExists)
             throw new IllegalStateException("Region with the same name already exists for this user");
 
         Region region = regionMapper.toEntity(regionDTO);
-        region.setRegionName(regionDTO.getRegion_name());
-        region.setUserId(regionDTO.getUser_id());
+        region.setRegionName(regionDTO.getRegionName());
+        region.setUserId(regionDTO.getUserId());
 
         return regionMapper.toDTO(regionRepository.save(region));
     }
-
+    
     public RegionDTO getById(String id) throws NameNotFoundException {
         Long longId = Long.parseLong(id);
 
@@ -55,7 +56,7 @@ public class RegionService {
         Optional<Region> oRegion = Objects.requireNonNull(regionRepository.findById(regionId));
         Region regionEntity = oRegion.orElseThrow(() -> new IllegalArgumentException("Region not found"));
 
-        regionEntity.setRegionName(regiondata.getRegion_name());
+        regionEntity.setRegionName(regiondata.getRegionName());
         return regionMapper.toDTO(regionRepository.save(regionEntity));
     }
 

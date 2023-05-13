@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegionEditDTO {
     private Long id;
-    private String region_name;
-    private Long user_id;
+    private String regionName;
+    private Long userId;
 }
