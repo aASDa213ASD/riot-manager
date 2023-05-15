@@ -1,7 +1,6 @@
 package com.riot.manager.dto;
 
 import com.riot.manager.entity.GameAccount;
-import com.riot.manager.entity.Region;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

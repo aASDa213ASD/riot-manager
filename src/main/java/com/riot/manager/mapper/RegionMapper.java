@@ -9,6 +9,5 @@ import org.mapstruct.Mapper;
 public interface RegionMapper {
     RegionDTO toDTO(Region region);
     RegionViewDTO toViewDTO(Region region);
-
     Region toEntity(RegionDTO regionDTO);
 }
