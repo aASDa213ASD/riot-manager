@@ -38,7 +38,7 @@ public class RegionService {
 
         return regionMapper.toDTO(regionRepository.save(region));
     }
-    
+
     public RegionDTO getById(String id) throws NameNotFoundException {
         Long longId = Long.parseLong(id);
 
