@@ -1,5 +1,6 @@
 package com.riot.manager.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.riot.manager.dto.*;
 import com.riot.manager.service.GameAccountService;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,11 @@ public class GameAccountController {
     @PostMapping
     public void createAccount(@RequestBody GameAccountDTO gameAccountDTO) {
         gameAccountService.addAccount(gameAccountDTO);
+    }
+
+    @PostMapping("/{id}")
+    public void updateAccount(@RequestBody GameAccountEditDTO gameAccountEditDTO) throws JsonProcessingException {
+        gameAccountService.updateAccount(gameAccountEditDTO);
     }
 
     @PutMapping
