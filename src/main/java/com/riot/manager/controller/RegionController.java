@@ -1,6 +1,7 @@
 package com.riot.manager.controller;
 
 import com.riot.manager.dto.RegionDTO;
+import com.riot.manager.dto.RegionViewDTO;
 import com.riot.manager.dto.RegionEditDTO;
 import com.riot.manager.service.RegionService;
 
@@ -19,7 +20,7 @@ public class RegionController {
     private final RegionService regionService;
 
     @GetMapping
-    public List<RegionDTO> getRegionList(){
+    public List<RegionViewDTO> getRegionList(){
         return regionService.getRegionList();
     }
 

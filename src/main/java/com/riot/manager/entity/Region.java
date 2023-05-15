@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -23,4 +25,7 @@ public class Region {
 
     @JoinColumn(name = "user_id")
     private Long userId;
+
+    @OneToMany(mappedBy = "regionId")
+    private List<GameAccount> gameAccountList;
 }

@@ -2,8 +2,8 @@ package com.riot.manager.service;
 
 import com.riot.manager.dto.RegionDTO;
 import com.riot.manager.dto.RegionEditDTO;
+import com.riot.manager.dto.RegionViewDTO;
 import com.riot.manager.entity.Region;
-import com.riot.manager.entity.User;
 import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;
@@ -20,10 +20,10 @@ public class RegionService {
     private final RegionRepository regionRepository;
     private final RegionMapper regionMapper;
 
-    public List<RegionDTO> getRegionList() {
+    public List<RegionViewDTO> getRegionList() {
         List<Region> serviceEntities = regionRepository.findAll();
         return serviceEntities.stream()
-                .map(regionMapper::toDTO)
+                .map(regionMapper::toViewDTO)
                 .toList();
     }
 
