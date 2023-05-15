@@ -14,5 +14,5 @@ import java.util.List;
 public class RegionViewDTO {
     private String regionName;
     private Long userId;
-    private List<GameAccount> gameAccountList;
+    private List<GameAccount> gameAccountsList;
 }

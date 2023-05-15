@@ -27,5 +27,5 @@ public class Region {
     private Long userId;
 
     @OneToMany(mappedBy = "regionId")
-    private List<GameAccount> gameAccountList;
+    private List<GameAccount> gameAccountsList;
 }
