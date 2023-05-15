@@ -1,27 +1,22 @@
 package com.riot.manager.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-/*
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "game_account")
-*/
+@Table(name = "game_accounts")
 public class GameAccount {
-    /*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gameacc_generator")
     @SequenceGenerator(name = "gameacc_generator", sequenceName = "gameacc_seq", allocationSize = 1)
     private Long id;
 
-    @Column
+    @NonNull
+    @JoinColumn(name = "region_id")
     private Long regionId;
 
     @Column
@@ -30,6 +25,7 @@ public class GameAccount {
     @Column
     private String password;
 
+    @NonNull
     @Column
     private String name;
 
@@ -38,5 +34,4 @@ public class GameAccount {
 
     @Column
     private String rank;
-    */
 }
