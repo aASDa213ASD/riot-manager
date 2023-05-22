@@ -4,6 +4,8 @@ import com.riot.manager.dto.RegionDTO;
 import com.riot.manager.dto.UserDTO;
 import com.riot.manager.dto.UserViewDTO;
 import com.riot.manager.entity.User;
+import com.riot.manager.events.ManagerEventPublisher;
+import com.riot.manager.events.UserRegistrationEvent;
 import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.mapper.UserMapper;
 import com.riot.manager.repository.UserRepository;
@@ -20,6 +22,7 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final ManagerEventPublisher eventPublisher;
 
     public List<UserViewDTO> getUserList() {
         List<User> serviceEntities = userRepository.findAll();
@@ -47,6 +50,7 @@ public class UserService {
         if (userExists)
             throw new IllegalStateException("This username has already been taken.");
 
+        eventPublisher.publishEvent(new UserRegistrationEvent(user));
         return userMapper.toDTO(userRepository.save(user));
     }
 

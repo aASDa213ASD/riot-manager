@@ -1,0 +1,293 @@
+@font-face {
+    src: url(ProggyClean.ttf);
+    font-family: proggy;
+}
+
+body, html {
+    background-color: #eeeeee;
+    color: black;
+    font-family: "proggy";
+    font-weight: lighter;
+    font-size: 30px;
+    margin:15px;
+}
+
+::selection {
+    background-color:#515151;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgb(90, 90, 90);
+}
+
+.hr_denominator {
+    position: absolute;
+    top: 194px;
+    left: 30px;
+    width: 130px;
+    border: none;
+    border-top: 1px solid rgb(90, 90, 90);
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(0, 255, 162);
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(0, 255, 162);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"] {
+    outline: none;
+    text-align: center;
+    background-color: #f3f3f3;
+    border: 1px solid #515151;
+    font-family: "proggy";
+    font-size:25px;
+    color:black;
+    width:150px;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #444444;
+    color: black;
+    border-radius: 3px;
+}
+
+button[type="submit"],
+input[type="submit"],
+input[type='file']::file-selector-button {
+    background-color: #262626;
+    border: 1px solid #515151;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-family: "proggy";
+}
+
+input[type="submit"]:hover {
+    background-color: #a1a1a1;
+}
+
+input[type="submit"]:disabled,
+input[type="text"]:disabled,
+button[type="submit"]:disabled {
+   background-color: #262626;
+   color: gray;
+}
+
+.disabled {
+    color:#a1a1a1;
+}
+
+.inputsmall {
+    width: 50px;
+}
+
+.inputmedium {
+    width: 80px;
+}
+
+select {
+    color: black;
+    background-color: #f3f3f3;
+    font-family: "proggy";
+    font-size: 20px;
+}
+
+.classButton {
+    background-color: #262626;
+    border: 1px solid #515151;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-family: "proggy";
+}
+
+button:hover {
+    background-color: #a1a1a1;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #262626;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: -20px;
+}
+  
+.tab {
+    width: 100px;
+    height: 5px;
+    padding-bottom: 18px;
+    padding-top: 2px;
+    margin: 5px;
+    text-align: center;
+    background-color: #262626;
+    border: 1px solid #515151;
+    cursor: pointer;
+}
+  
+.tab.active {
+    background-color: #a1a1a1;
+}
+  
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+  
+.tab-content.active {
+    display: block;
+}
+
+.project-list a:visited {
+    text-decoration: none;
+    color: rgb(255, 62, 117);
+}
+
+.project-list a:link {
+    text-decoration: none;
+    color: rgb(255, 62, 117);
+}
+
+form {
+    margin-bottom: 5px;
+}
+
+#tab-1 {
+    width: 165px;
+}
+
+#tab-2 {
+    width: 70px;
+}
+
+#tab-3 {
+    width: 85px;
+}
+
+#codeblock {
+    background-color:#262626;
+}
+
+.description {
+    color: #a1a1a1;
+}
+
+#spoiler {
+    overflow: auto;
+    word-wrap: break-word;
+    background-color:black;
+    border: 1px solid #515151;
+    padding: 20px;
+    margin-top: -16px;
+}
+
+#spoiler-button {
+    margin-top: -42px;
+}
+
+.code {
+    color:#39c39e;
+    font-family: "proggy";
+    font-size:27px;
+    margin-bottom: -60px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 450px;
+    margin-top: -24px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.formula {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+
+.imgsmall:hover,
+.imgwidesmall:hover {
+    filter: brightness(60%);
+}
+
+
+.imgsmall {
+    width: 50px;
+    height: 50px;
+}
+    
+.imgwidesmall {
+    width: 100px;
+    height: 50px;
+    padding-bottom:20px;
+}
+
+.correct_block {
+    background-color: rgba(87, 255, 160, 0.186);
+}
+
+.wrong_block {
+    background-color: rgba(255, 0, 0, 0.379);
+}
+
+.table {
+    font-size: 30px;
+    border-style: none;
+    text-align: center;
+}
+
+textarea {
+    color: white;
+    background-color: #141414;
+    font-family: "proggy";
+    font-size: 25px;
+}
+
+input[type="text"].error {
+    color: rgb(255, 50, 84);
+    border: 2px double rgb(255, 50, 84);;
+}
+
+.error {
+    color: rgb(255, 50, 84);
+}
+
+.valid {
+    color: rgb(50, 255, 163);
+}
+
+.hint {
+    color: gray;
+}

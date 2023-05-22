@@ -3,10 +3,10 @@ package com.riot.manager.controller;
 import com.riot.manager.dto.UserDTO;
 import com.riot.manager.dto.UserViewDTO;
 import com.riot.manager.service.UserService;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.AllArgsConstructor;
 
 import javax.naming.NameNotFoundException;
 import java.util.List;

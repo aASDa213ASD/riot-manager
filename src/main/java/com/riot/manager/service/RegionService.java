@@ -4,6 +4,7 @@ import com.riot.manager.dto.RegionDTO;
 import com.riot.manager.dto.RegionEditDTO;
 import com.riot.manager.dto.RegionViewDTO;
 import com.riot.manager.entity.Region;
+import com.riot.manager.entity.User;
 import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;

@@ -2,6 +2,7 @@ package com.riot.manager.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.riot.manager.config.CacheConfig;
 import com.riot.manager.dto.*;
 import com.riot.manager.entity.GameAccount;
 import com.riot.manager.entity.Region;
@@ -10,6 +11,7 @@ import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.GameAccountRepository;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;

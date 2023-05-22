@@ -1,0 +1,73 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Riot Account Manager</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .header-buttons {
+                display: flex;
+                gap: 10px;
+            }
+
+            .centered-div {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1000px;
+                height: 500px;
+                background-color: white;
+                border-radius: 5px;
+                padding: 20px;
+                box-shadow: 0px 1px 5px black;
+            }
+
+            .form-heading {
+                text-align: center;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <a><b>Riot Account Manager</b></a>
+        <div class="header-buttons">
+            <input type="submit" value="Log in">
+            <input type="submit" value="Sign up">
+        </div>
+    </div>
+    <hr>
+
+    <div class="centered-div">
+        <!-- START OF DATA BLOCK -->
+        <label for="region">Region:</label>
+        <select id="region">
+            <option value="region1">EUW</option>
+            <option value="region2">EUNE</option>
+            <option value="region3">NA</option>
+        </select>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+
+        <input type="submit" value="Check">
+        <hr>
+        <!-- END OF DATA BLOCK -->
+        <div class="form-heading">
+            <a><b>REGION</b></a>
+            <a><b>LEVEL</b></a>
+            <a><b>RANK</b></a>
+            <a><b>NAME</b></a>
+        </div>
+        <hr>
+    </div>
+    </body>
+</html>
