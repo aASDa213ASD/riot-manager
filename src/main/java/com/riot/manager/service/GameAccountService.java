@@ -10,10 +10,11 @@ import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.GameAccountRepository;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
 
 import javax.naming.NameNotFoundException;
 import java.util.List;
@@ -51,6 +52,7 @@ public class GameAccountService {
         return response;
     }
 
+    @Cacheable("accountsCache")
     public List<GameAccountViewDTO> getAccountList()
     {
         List<GameAccount> serviceEntities = gameAccountRepository.findAll();
@@ -65,6 +67,7 @@ public class GameAccountService {
         return gameAccountMapper.toDTO(gameAccountRepository.save(gameAccount));
     }
 
+    @CacheEvict("accountsCache")
     public GameAccountDTO updateAccount(GameAccountEditDTO gameAccountData) throws JsonProcessingException
     {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -105,6 +108,7 @@ public class GameAccountService {
         return gameAccountMapper.toDTO(gameAccountRepository.save(gameAccount));
     }
 
+    @Cacheable("accountsCache")
     public GameAccountDTO getById(String id) throws NameNotFoundException
     {
         Long longId = Long.parseLong(id);

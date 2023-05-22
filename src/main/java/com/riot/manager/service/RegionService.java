@@ -8,6 +8,8 @@ import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
 
 import javax.naming.NameNotFoundException;
 import java.util.List;
@@ -20,6 +22,7 @@ public class RegionService {
     private final RegionRepository regionRepository;
     private final RegionMapper regionMapper;
 
+    @Cacheable("regionCache")
     public List<RegionViewDTO> getRegionList() {
         List<Region> serviceEntities = regionRepository.findAll();
         return serviceEntities.stream()
@@ -39,6 +42,7 @@ public class RegionService {
         return regionMapper.toDTO(regionRepository.save(region));
     }
 
+    @Cacheable("regionCache")
     public RegionDTO getById(String id) throws NameNotFoundException {
         Long longId = Long.parseLong(id);
 
@@ -51,6 +55,7 @@ public class RegionService {
         return regionMapper.toDTO(oRegion.get());
     }
 
+    @CacheEvict("regionCache")
     public RegionDTO changeRegionName(RegionEditDTO regiondata) {
         Long regionId = regiondata.getId();
         Optional<Region> oRegion = Objects.requireNonNull(regionRepository.findById(regionId));
