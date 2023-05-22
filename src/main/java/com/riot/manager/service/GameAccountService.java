@@ -10,6 +10,7 @@ import com.riot.manager.mapper.RegionMapper;
 import com.riot.manager.repository.GameAccountRepository;
 import com.riot.manager.repository.RegionRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,7 +29,7 @@ public class GameAccountService {
     private final RegionRepository regionRepository;
     private final RegionMapper regionMapper;
 
-    private final String APIKey = "RGAPI-88c42fff-c5f7-4089-981e-e47015c0e93d";
+    private final String APIKey = "RGAPI-5b6d28b3-532c-4683-8121-324399d50571";
 
     private String requestSummonerData(GameAccount gameAccount, String region)
     {

@@ -32,12 +32,12 @@ public class GameAccountController {
         gameAccountService.addAccount(gameAccountDTO);
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public void updateAccount(@RequestBody GameAccountEditDTO gameAccountEditDTO) throws JsonProcessingException {
         gameAccountService.updateAccount(gameAccountEditDTO);
     }
 
-    @PutMapping
+    @PostMapping("/{id}/refresh")
     public ResponseEntity<String> changeAccountData(@RequestBody GameAccountEditDTO gameAccountEditDTO) throws NameNotFoundException {
         GameAccountDTO gameAccountDTO = gameAccountService.changeAccountData(gameAccountEditDTO);
 
